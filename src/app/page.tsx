@@ -1,9 +1,31 @@
-import React from 'react'
+"use client";
 
-function page() {
+import { useEffect } from "react";
+import Hero from "@/Components/Hero";
+import About from "@/Components/About";
+import Section from "@/Components/Section";
+import SectionTwo from "@/Components/SectionTwo";
+import SectionThree from "@/Components/SectionThree";
+
+function Home() {
+  useEffect(() => {
+    (async () => {
+      const LocomotiveScroll = (await import("locomotive-scroll")).default;
+
+      new LocomotiveScroll();
+    })();
+  }, []);
   return (
-    <div>page</div>
-  )
+    <>
+      <main>
+        <Hero />
+        <About />
+        <Section />
+        <SectionTwo />
+        <SectionThree />
+      </main>
+    </>
+  );
 }
 
-export default page
+export default Home;
